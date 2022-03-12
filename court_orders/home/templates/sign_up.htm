@@ -84,7 +84,7 @@
 		</div>
 	</div>
 
-
+<form method="POST" class="sign_up_form" action="{% url 'sign_up' %}">
 	<!-- Sign Up Modal -->
 	<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
 		aria-hidden="true">
@@ -99,28 +99,32 @@
 				<div class="modal-body">
 					<form>
 						<div class="form-group">
-							<label for="name" class="col-form-label">Name</label>
-							<input type="text" class="form-control" id="name">
+							<label for="first_name" class="col-form-label">First Name</label>
+							<input type="text" class="form-control" id="f_name" name="first_name">
+						</div>
+						<div class="form-group">
+							<label for="last_name" class="col-form-label">Last Name</label>
+							<input type="text" class="form-control" id="l_name" name="last_name">
 						</div>
 						<div class="form-group">
 							<label for="mobile" class="col-form-label">Mobile</label>
-							<input type="text" class="form-control" id="mobile">
+							<input type="text" class="form-control" id="mobile" name="mobile">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail">
+							<input type="email" class="form-control" id="exampleInputEmail" name="email">
 						</div>
 						<div class="form-group">
 							<label for="profile_pic">Upload your profile picture</label>
-							<input type="file" class="form-control" id="profile_pic">
+							<input type="file" class="form-control" id="profile_pic" name="profile_pic">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword">
+							<input type="password" class="form-control" id="exampleInputPassword" name="password1">
 						</div>
 						<div class="form-group">
 							<label for="cexampleInputPassword">Confirm Password</label>
-							<input type="password" class="form-control" id="cexampleInputPassword">
+							<input type="password" class="form-control" id="cexampleInputPassword" name="password2">
 						</div>
 						<small id="emailHelp" class="form-text text-muted">All your details are safe with us.</small>
 						<div class="form-group">
@@ -131,7 +135,7 @@
 								<option value="lawyer">Lawyer</option>
 							</select>
 						</div>
-						<button class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#user_regModal">Next</button>
+						<button class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#user_regModal" id="nextbutton">Next</button>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -143,7 +147,7 @@
 
 
 	<!-- User register Modal -->
-	<div class="modal fade" id="user_regModal" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
+	<div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -157,11 +161,11 @@
 					<form>
 						<div class="form-group">
 							<label for="aadharnum">Aadhar number</label>
-							<input type="text" class="form-control" id="aadharnum" aria-describedby="emailHelp">
+							<input type="text" class="form-control" id="aadharnum" aria-describedby="emailHelp" name="aadhar">
 						</div>
 						<div class="form-group">
 							<label for="aadharcard">Aadhar card</label>
-							<input type="file" class="form-control" id="aadharcard">
+							<input type="file" class="form-control" id="aadharcard" name="aadhar_card">
 						</div>
 						
 						<button type="submit" class="btn btn-primary" data-dismiss="modal">Register</a>
@@ -175,7 +179,7 @@
 	</div>
 
 	<!-- Judge register Modal -->
-	<div class="modal fade" id="user_regModal" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
+	<div class="modal fade" id="judge" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -189,19 +193,19 @@
 					<form>
 						<div class="form-group">
 							<label for="j_reg">Registration number</label>
-							<input type="text" class="form-control" id="j_reg>
+							<input type="text" class="form-control" id="j_reg" name="id">
 						</div>
 						<div class="form-group">
 							<label for="j_idcard">ID card</label>
-							<input type="file" class="form-control" id="j_idcard">
+							<input type="file" class="form-control" id="j_idcard" name="id_card">
 						</div>
 						<div class="form-group">
 							<label for="j_cert">Certificate</label>
-							<input type="file" class="form-control" id="j_cert">
+							<input type="file" class="form-control" id="j_cert" name="certificate">
 						</div>
 						<div class="form-group">
 							<label for="j_info">Additional information</label>
-							<input type="text" class="form-control" id="j_info">
+							<input type="text" class="form-control" id="j_info" name="add_info">
 						</div>
 						<button type="submit" class="btn btn-primary">Register</button>
 					</form>
@@ -214,7 +218,7 @@
 	</div>
 
 	<!-- Clerk register Modal -->
-	<div class="modal fade" id="user_regModal" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
+	<div class="modal fade" id="clerk" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -228,19 +232,19 @@
 					<form>
 						<div class="form-group">
 							<label for="j_reg">Clerk ID</label>
-							<input type="text" class="form-control" id="j_reg">
+							<input type="text" class="form-control" id="j_reg" name="id">
 						</div>
 						<div class="form-group">
 							<label for="c_idcard">ID card</label>
-							<input type="file" class="form-control" id="c_idcard">
+							<input type="file" class="form-control" id="c_idcard" name="id_card">
 						</div>
 						<div class="form-group">
 							<label for="c_cert">Certificate</label>
-							<input type="file" class="form-control" id="c_cert">
+							<input type="file" class="form-control" id="c_cert" name="certificate">
 						</div>
 						<div class="form-group">
 							<label for="c_info">Additional information</label>
-							<input type="text" class="form-control" id="c_info">
+							<input type="text" class="form-control" id="c_info" name="add_info">
 						</div>
 						<button type="submit" class="btn btn-primary">Register</button>
 					</form>
@@ -253,7 +257,7 @@
 	</div>
 
 	<!-- Lawyer register Modal -->
-	<div class="modal fade" id="user_regModal" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
+	<div class="modal fade" id="lawyer" tabindex="-1" role="dialog" aria-labelledby="user_regModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -267,19 +271,19 @@
 					<form>
 						<div class="form-group">
 							<label for="l_reg">Registration number</label>
-							<input type="text" class="form-control" id="j_reg">
+							<input type="text" class="form-control" id="j_reg" name="Id">
 						</div>
 						<div class="form-group">
 							<label for="l_idcard">ID card</label>
-							<input type="file" class="form-control" id="l_idcard">
+							<input type="file" class="form-control" id="l_idcard" name="id_card">
 						</div>
 						<div class="form-group">
 							<label for="l_cert">Certificate</label>
-							<input type="file" class="form-control" id="l_cert">
+							<input type="file" class="form-control" id="l_cert" name="certificate">
 						</div>
 						<div class="form-group">
 							<label for="l_info">Additional information</label>
-							<input type="text" class="form-control" id="l_info">
+							<input type="text" class="form-control" id="l_info" name="add_info">
 						</div>
 						<button type="submit" class="btn btn-primary">Register</button>
 					</form>
@@ -290,6 +294,7 @@
 			</div>
 		</div>
 	</div>
+	</form>
 
 	<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -418,5 +423,14 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 </body>
+<script>
+$(document).ready(function(){
+  $("#nextbutton").click(function(){
+	var e = document.getElementById("typeofuser");
+	var strUser = e.value;
+    $("#"+strUser).modal();
+  });
+});
+	</script>
 
 </html>

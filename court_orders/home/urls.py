@@ -1,4 +1,9 @@
-from django.urls import path
 from .import views
+from django.urls import path,include
 
-urlpatterns = []
+
+urlpatterns = [
+path('home',views.home),
+path('sign_up',views.sign_up, name="sign_up")
+
+]
